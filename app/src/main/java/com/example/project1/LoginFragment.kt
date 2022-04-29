@@ -64,20 +64,28 @@ class LoginFragment : Fragment() {
 
         // login button functionality
         binding.loginBtn.setOnClickListener {
-            // validate email
+            // validate empty fields and email
+            var success = true
             if (binding.emailField.editText?.text.toString().trim().isEmpty()) {
                 binding.emailField.error = "Please enter your email!"
-            }
-            else if (binding.passwordField.editText?.text.toString().trim().isEmpty()) {
-                binding.passwordField.error = "Please enter your password!"
-            }
-            else if ( !(EmailValidator.IsEmailValid(binding.emailField.editText?.text.toString().trim())) ) {
+                success = false
+            }    else if ( !(EmailValidator.IsEmailValid(binding.emailField.editText?.text.toString().trim())) ) {
                 binding.emailField.error = "Email address is invalid!"
+                success = false
             }
-
             else {
                 binding.emailField.error = ""
+            }
+
+            if (binding.passwordField.editText?.text.toString().trim().isEmpty()) {
+                binding.passwordField.error = "Please enter your password!"
+                success = false
+            }
+            else {
                 binding.passwordField.error = ""
+            }
+
+            if (success) {
                 Snackbar.make(it, "Login successful", Snackbar.LENGTH_LONG).show()
             }
         }
