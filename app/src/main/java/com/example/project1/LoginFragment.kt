@@ -62,6 +62,10 @@ class LoginFragment : Fragment() {
             binding.emailField.error = ""
         }
 
+        binding.forgotPasswordButton.setOnClickListener {
+            Snackbar.make(it, "I don't know what to do", Snackbar.LENGTH_LONG).show()
+        }
+
         // login button functionality
         binding.loginBtn.setOnClickListener {
             // validate empty fields and email
