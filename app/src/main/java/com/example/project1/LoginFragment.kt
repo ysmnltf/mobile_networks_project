@@ -57,12 +57,26 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_LoginFragment_to_SignupFragment)
         }
 
+        binding.emailField.addOnEditTextAttachedListener {
+            binding.emailField.error = ""
+        }
+
         // login button functionality
         binding.loginBtn.setOnClickListener {
             // validate email
-            if ( !(EmailValidator.IsEmailValid(binding.emailTxt.text.toString().trim())) ) {
-                binding.emailTxt.error = "Email address is invalid"
-            } else {
+            if (binding.emailField.editText?.text.toString().trim().isEmpty()) {
+                binding.emailField.error = "Please enter your email!"
+            }
+            else if (binding.passwordField.editText?.text.toString().trim().isEmpty()) {
+                binding.passwordField.error = "Please enter your password!"
+            }
+            else if ( !(EmailValidator.IsEmailValid(binding.emailField.editText?.text.toString().trim())) ) {
+                binding.emailField.error = "Email address is invalid!"
+            }
+
+            else {
+                binding.emailField.error = ""
+                binding.passwordField.error = ""
                 Snackbar.make(it, "Login successful", Snackbar.LENGTH_LONG).show()
             }
         }
