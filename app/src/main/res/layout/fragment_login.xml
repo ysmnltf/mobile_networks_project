@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Welcome back!"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/material_dynamic_neutral10"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login to your existing account."
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/material_dynamic_neutral60" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email_field"
@@ -76,6 +77,114 @@
                 android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/forgot_password_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Forgot Password?"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/material_dynamic_primary20"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="80dp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:shadowColor="#000000"
+            android:text="Log in"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:backgroundTint="@color/material_dynamic_primary50"
+            app:cornerRadius="50dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="or connect using"
+            android:textAlignment="center"
+            android:textColor="@color/material_dynamic_neutral60" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/googleBtn"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:shadowColor="#000000"
+                android:text="Google"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:backgroundTint="#f5432f"
+                app:cornerRadius="5dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/facebookBtn"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:shadowColor="#000000"
+                android:text="Facebook"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:backgroundTint="#3a5c8b"
+                app:cornerRadius="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="horizontal"
+            android:paddingBottom="40dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Don't have an account?"
+                android:textColor="@color/material_dynamic_neutral20"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/goToSignupBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="Sign up"
+                android:textColor="@color/material_dynamic_primary50"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </FrameLayout>
