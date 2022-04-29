@@ -109,6 +109,7 @@
                 android:id="@+id/phoneTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="phone"
                 android:textColorHint="@color/gray600"
                 android:textStyle="bold" />
 
@@ -191,6 +192,7 @@
             android:layout_height="match_parent"
             android:gravity="bottom|center_horizontal"
             android:orientation="horizontal"
+            android:layout_marginTop="20dp"
             android:paddingBottom="40dp">
 
             <com.google.android.material.textview.MaterialTextView
