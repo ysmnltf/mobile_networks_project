@@ -60,8 +60,8 @@ class LoginFragment : Fragment() {
         // login button functionality
         binding.loginBtn.setOnClickListener {
             // validate email
-            if ( !(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim())) ) {
-                binding.emailField.error = "Email address is invalid"
+            if ( !(EmailValidator.IsEmailValid(binding.emailTxt.text.toString().trim())) ) {
+                binding.emailTxt.error = "Email address is invalid"
             } else {
                 Snackbar.make(it, "Login successful", Snackbar.LENGTH_LONG).show()
             }

@@ -53,6 +53,7 @@
             app:startIconDrawable="@drawable/ic_baseline_person_24">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/gray600"
@@ -77,6 +78,7 @@
             app:startIconDrawable="@drawable/ic_baseline_email_24">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/gray600"
@@ -100,6 +102,7 @@
             app:startIconDrawable="@drawable/ic_baseline_phone_android_24">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/gray600"
@@ -125,6 +128,7 @@
             app:startIconDrawable="@drawable/ic_baseline_lock_open_24">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -151,10 +155,11 @@
             app:startIconDrawable="@drawable/ic_baseline_lock_open_24">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/conPassTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/gray600"
                 android:inputType="textPassword"
+                android:textColorHint="@color/gray600"
                 android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
