@@ -26,6 +26,7 @@ class LoginFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    // https://developer.android.com/topic/libraries/view-binding#kts
     private var _binding: FragmentLoginBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
