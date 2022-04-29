@@ -61,9 +61,15 @@ class SignupFragment : Fragment() {
         binding.signupBtn.setOnClickListener {
 
             // conditions for sign up
+            var isUsernameValid = true
             var isPhoneValid = true
             var isEmailVaid = true
             var isPasswordValid = true
+
+            // validate username
+            if (binding.usernameTxt.text.toString().isEmpty()) {
+                binding.usernameTxt.error = "Username cannot be empty"
+            }
 
             // validate phone number
             if (!(PhoneValidator.IsPhoneValid(binding.phoneTxt.text.toString().trim()))) {
@@ -84,7 +90,7 @@ class SignupFragment : Fragment() {
                 isPasswordValid = false
             }
 
-            if (isEmailVaid && isPasswordValid && isPhoneValid) {
+            if (isUsernameValid && isEmailVaid && isPasswordValid && isPhoneValid) {
                 Snackbar.make(it, "User Created", Snackbar.LENGTH_LONG).show()
             }
         }
