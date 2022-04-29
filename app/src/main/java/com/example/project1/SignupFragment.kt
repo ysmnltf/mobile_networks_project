@@ -50,36 +50,44 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        // TODO: move the below code to login btn listener
-
-        findNavController().navigate(R.id.action_SignupFragment_to_LoginFragment)
-
-        // TODO: move the below code to go back btn
-
-        findNavController().navigate(R.id.action_SignupFragment_to_LoginFragment)
-
-        // TODO: move the below code to signup btn listener
-
-        var isPhoneValid = true
-        var isEmailVaid = true
-        var isPasswordValid = true
-
-        if ( !(PhoneValidator.IsPhoneValid(binding.phoneField.editText.toString().trim())) ) {
-            binding.phoneField.error = "Phone number is invalid"
-            isPhoneValid = false
+        binding.goToSignupBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_SignupFragment_to_LoginFragment)
         }
 
-        if ( !(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim())) ) {
-            binding.emailField.error = "Email address is invalid"
-            isEmailVaid = false
+        binding.BackBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_SignupFragment_to_LoginFragment)
         }
 
+        binding.signupBtn.setOnClickListener {
 
-        if (isEmailVaid && isPasswordValid && isPhoneValid) {
-//            Snackbar.make(it, "User Created", Snackbar.LENGTH_LONG).show()
+            // conditions for sign up
+            var isPhoneValid = true
+            var isEmailVaid = true
+            var isPasswordValid = true
+
+            // validate phone number
+            if (!(PhoneValidator.IsPhoneValid(binding.phoneField.editText.toString().trim()))) {
+                binding.phoneField.error = "Phone number is invalid"
+                isPhoneValid = false
+            }
+
+            // validate email address
+            if (!(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim()))) {
+                binding.emailField.error = "Email address is invalid"
+                isEmailVaid = false
+            }
+
+            if (!(binding.passwordField.editText.toString()
+                    .trim() == binding.confirmPasswordField.editText.toString().trim())
+            ) {
+                binding.confirmPasswordField.error = "Passwords are not same"
+                isPasswordValid = false
+            }
+
+            if (isEmailVaid && isPasswordValid && isPhoneValid) {
+                Snackbar.make(it, "User Created", Snackbar.LENGTH_LONG).show()
+            }
         }
-
 
     }
 

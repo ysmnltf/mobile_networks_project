@@ -1,14 +1,15 @@
 package com.example.project1
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.project1.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
+import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,16 +52,27 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // go to sign up page
         binding.goToSignupBtn.setOnClickListener {
             findNavController().navigate(R.id.action_LoginFragment_to_SignupFragment)
         }
 
+        // login button functionality
         binding.loginBtn.setOnClickListener {
+            // validate email
             if ( !(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim())) ) {
                 binding.emailField.error = "Email address is invalid"
             } else {
                 Snackbar.make(it, "Login successful", Snackbar.LENGTH_LONG).show()
             }
+        }
+
+        binding.googleBtn.setOnClickListener {
+            binding.googleBtn.setBackgroundColor(Color.argb(255, Random.nextInt(255), Random.nextInt(255), Random.nextInt(255)))
+        }
+
+        binding.facebookBtn.setOnClickListener {
+            binding.facebookBtn.setBackgroundColor(Color.argb(255, Random.nextInt(255), Random.nextInt(255), Random.nextInt(255)))
         }
     }
 
