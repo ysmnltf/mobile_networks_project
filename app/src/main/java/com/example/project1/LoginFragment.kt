@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import com.example.project1.databinding.FragmentLoginBinding
+import com.google.android.material.snackbar.Snackbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,13 +42,21 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        binding.loginBtn.setOnClickListener {
+            if ( !(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim())) ) {
+                binding.loginBtn.error = "Email address is invalid"
+            } else {
+                Snackbar.make(it, "Login successful", Snackbar.LENGTH_LONG).show()
+            }
+        }
     }
 
     companion object {
