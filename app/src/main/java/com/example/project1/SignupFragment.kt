@@ -66,21 +66,21 @@ class SignupFragment : Fragment() {
             var isPasswordValid = true
 
             // validate phone number
-            if (!(PhoneValidator.IsPhoneValid(binding.phoneField.editText.toString().trim()))) {
-                binding.phoneField.error = "Phone number is invalid"
+            if (!(PhoneValidator.IsPhoneValid(binding.phoneTxt.text.toString().trim()))) {
+                binding.phoneTxt.error = "Phone number is invalid"
                 isPhoneValid = false
             }
 
             // validate email address
-            if (!(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim()))) {
-                binding.emailField.error = "Email address is invalid"
+            if (!(EmailValidator.IsEmailValid(binding.emailTxt.text.toString().trim()))) {
+                binding.emailTxt.error = "Email address is invalid"
                 isEmailVaid = false
             }
 
-            if (!(binding.passwordField.editText.toString()
-                    .trim() == binding.confirmPasswordField.editText.toString().trim())
+            if (binding.passwordTxt.text.toString()
+                    .trim() != binding.conPassTxt.text.toString().trim()
             ) {
-                binding.confirmPasswordField.error = "Passwords are not same"
+                binding.conPassTxt.error = "Passwords are not same"
                 isPasswordValid = false
             }
 
