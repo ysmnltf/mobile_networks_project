@@ -77,7 +77,7 @@ class SignupFragment : Fragment() {
 
 
         if (isEmailVaid && isPasswordValid && isPhoneValid) {
-            Snackbar.make(it, "User Created", Snackbar.LENGTH_LONG).show()
+//            Snackbar.make(it, "User Created", Snackbar.LENGTH_LONG).show()
         }
 
 
