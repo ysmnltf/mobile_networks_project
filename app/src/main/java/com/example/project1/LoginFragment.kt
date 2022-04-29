@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import androidx.navigation.fragment.findNavController
 import com.example.project1.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -50,9 +51,13 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.goToSignupBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_LoginFragment_to_SignupFragment)
+        }
+
         binding.loginBtn.setOnClickListener {
             if ( !(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim())) ) {
-                binding.loginBtn.error = "Email address is invalid"
+                binding.emailField.error = "Email address is invalid"
             } else {
                 Snackbar.make(it, "Login successful", Snackbar.LENGTH_LONG).show()
             }

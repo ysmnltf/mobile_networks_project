@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.project1.databinding.FragmentSignupBinding
+import com.google.android.material.snackbar.Snackbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +49,36 @@ class SignupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        // TODO: move the below code to login btn listener
+
+        findNavController().navigate(R.id.action_SignupFragment_to_LoginFragment)
+
+        // TODO: move the below code to go back btn
+
+        findNavController().navigate(R.id.action_SignupFragment_to_LoginFragment)
+
+        // TODO: move the below code to signup btn listener
+
+        var isPhoneValid = true
+        var isEmailVaid = true
+        var isPasswordValid = true
+
+        if ( !(PhoneValidator.IsPhoneValid(binding.phoneField.editText.toString().trim())) ) {
+            binding.phoneField.error = "Phone number is invalid"
+            isPhoneValid = false
+        }
+
+        if ( !(EmailValidator.IsEmailValid(binding.emailField.editText.toString().trim())) ) {
+            binding.emailField.error = "Email address is invalid"
+            isEmailVaid = false
+        }
+
+
+        if (isEmailVaid && isPasswordValid && isPhoneValid) {
+            Snackbar.make(it, "User Created", Snackbar.LENGTH_LONG).show()
+        }
 
 
     }
